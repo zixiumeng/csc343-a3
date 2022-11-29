@@ -1,7 +1,19 @@
--- Could not: We do not use 
+-- Could not: 
+When a seat is deleted in SeatInfo, we cannot employ the constraint on Venue that each venue must have no less than 10 seats without trigger or assertion.
 -- Did not:
+
 -- Extra constraints:
+(1) each venue has no less than 1 section.
+(2) each ticket_id cannot have more than 1 user.
+(3) each seat belongs to exactly one venue.
 -- Assumptions:
+(1) a buyer can purchanse multiple tickets at the same point of time
+(2) any seat has a fixed mobility for all concerts
+(3) any city can have no or multiple venues.
+(4) venues can have the same name across cities, but each city only has one venue with the same name. That is, city_name and venue_name are unique
+(5) it requires no gap time between any 2 different concerts held at the same venue, and there is no constraint on the presentation time for concerts.
+(6) each venue must have at least one owner
+
 
 drop schema if exists ticketchema cascade;
 create schema ticketchema;
@@ -62,7 +74,7 @@ CREATE TABLE User (
 
 --
 CREATE TABLE Purchase (
-    purchase_id integer PRIMARY KEY,
+    ticket_id integer PRIMARY KEY,
     username varchar(20) NOT NULL REFERENCES User,
     cid NOT NULL REFERENCES Concert,
     seat_name varchar(10) NOT NULL REFERENCES SeatInfo,
