@@ -78,6 +78,7 @@ CREATE TABLE Concert (
     unique (concert_name, datetime)
 );
 
+
 -- Users of the app have a unique username.
 CREATE TABLE User (
     username varchar(20) PRIMARY KEY
