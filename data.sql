@@ -101,9 +101,31 @@ INSERT INTO SeatInfo VALUES
 
 -- Insert into Concert
 INSERT INTO Concert VALUES
-    (1, 'Ron Sexsmith', 'Saturday, December 3rd', 1),
-    (),
-    (),
-    ()
+    (1, 'Ron Sexsmith', 2022-12-03 19:30:00', 1),
+    (2, 'Women's Blues Review', 2022-11-23 20:00:00', 1),
+    (3, 'Mariah Carey - Merry Christmas to all', 2022-12-09 20:00:00', 3),
+    (4, 'Mariah Carey - Merry Christmas to all', 2022-12-11 20:00:00', 3),
+    (5, 'TSO - Elf in concert', 2022-12-09 19:30:00', 2),
+    (6, 'TSO - Elf in concert', 2022-12-10 14:30:00', 2),
+    (7, 'TSO - Elf in concert', 2022-12-10 19:30:00', 2);
+    
+-- Insert into price
+INSERT INTO Price VALUES
+    (1, 'floor', 130),
+    (1, 'balcony', 99),
+    (2, 'floor', 150),
+    (2, 'balcony', 125),
+    (3, '100', 986),
+    (3, '200', 244),
+    (3, '300', 176),
+    (4, '100', 936),
+    (4, '200', 194),
+    (4, '300', 126),
+    (5, 'main hall', 159),
+    (6, 'main hall', 159),
+    (7, 'main hall', 159);
+    
+    
    
+    
     
