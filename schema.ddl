@@ -78,13 +78,15 @@ CREATE TABLE Concert (
 
 -- A ticket of the concert, with ticket_id, concert_id, seat_name, section_name on it. 
 -- Ticket
-CREATE TABLE Ticket (
-    tid integer PRIMARY KEY,
-    cid integer NOT NULL REFERENCES Concert,
-    seat_name varchar(20) NOT NULL,
-    section_name varchar(20) NOT NULL,
-    unique(cid, seat_name, section_name)
-);
+-- CREATE TABLE Ticket (
+--    tid integer PRIMARY KEY,
+--    cid integer NOT NULL REFERENCES Concert,
+--    seat_name varchar(20) NOT NULL,
+--    section_name varchar(20) NOT NULL,
+--    unique(cid, seat_name, section_name)
+--);
+
+
 
 --
 CREATE TABLE UserInfo (
@@ -94,7 +96,10 @@ CREATE TABLE UserInfo (
 -- A user can purchase one or more tickets to any concert.
 CREATE TABLE Purchase (
     tid integer PRIMARY KEY REFERENCES Ticket,
+    cid integer NOT NULL REFERENCES Concert,
     datetime timestamp NOT NULL,
+    seat_name varchar(20) NOT NULL,
+    section_name varchar(20) NOT NULL,
     username varchar(20) NOT NULL REFERENCES UserInfo
 );
 
