@@ -34,15 +34,28 @@ GROUP BY cid;
 
 
 -- Find # of all ticket for a concert 
+--CREATE VIEW Allticket AS
+--SELECT cid, count(*) as all_num
+--FROM Ticket
+--GROUP BY cid;
+
+-- Find # of all ticket for a concert 
 CREATE VIEW Allticket AS
-SELECT cid, count(*) as all_num
-FROM Ticket
+SELECT cid, count(seat_name || section_name || vid) as all_num
+FROM SeatInfo JOIN Concert USING (vid)
 GROUP BY cid;
+
+
+-- Find # of all tickets sold for a concert
+--CREATE VIEW Soldticket AS
+--SELECT cid, count(*) as sold_num
+--FROM Purchase JOIN Ticket USING (tid)
+--GROUP BY cid;
 
 -- Find # of all tickets sold for a concert
 CREATE VIEW Soldticket AS
-SELECT cid, count(*) as sold_num
-FROM Purchase JOIN Ticket USING (tid)
+SELECT Concert.cid, count(*) as sold_num
+FROM Purchase JOIN Concert USING (cid)
 GROUP BY cid;
 
 -- Find the percentage of ticket sold for a concert
