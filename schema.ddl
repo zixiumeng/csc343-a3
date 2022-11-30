@@ -59,10 +59,11 @@ CREATE TABLE SeatInfo (
 
 -- Concerts are booked into venues. 
 CREATE TABLE Concert (
+    cid integer PRIMARY KEY,
     concert_name varchar(30) NOT MULL,
     datetime timestamp NOT NULL,
-    vid integer NOT NULL REFERENCES Venue(vid)
-    PRIMARY KEY (concert_name, datetime)
+    vid integer NOT NULL REFERENCES Venue(vid),
+    unique (concert_name, datetime)
 );
 
 --
@@ -72,26 +73,25 @@ CREATE TABLE User (
 
 --
 CREATE TABLE Purchase (
-    ticket_id integer PRIMARY KEY,
-    username varchar(20) NOT NULL REFERENCES User,
-    cid NOT NULL REFERENCES Concert,
-    seat_name varchar(10) NOT NULL REFERENCES SeatInfo,
-    section_name varchar(20) NOT NULL REFERENCES SeatInfo,
-    datetime timestamp NOT NULL,
+    tid integer PRIMARY KEY REFERENCES Ticket,
+    datetime timestamp,
+    username NOT NULL REFERENCES User
 );
 
 -- 
 CREATE TABLE Ticket (
     tid integer PRIMARY KEY,
-    concert_name varchar(30) NOT NULL, 
-    datetime timestamp NOT NULL,
-    seat_name,
-    section_name,
-    vid
-    (concert_name, datetime) REFERENCES Concert
-)
+    cid REFERENCES Concert
+    seat_name varchar(10) NOT NULL,
+    section_name varchar(20) NOT NULL,
+    unique(concert_name, datetime, seat_name, section_name)
+);
+
 --
 CREATE TABLE Price (
+    concert_name,
+    datetime, 
+
     cid integer NOT NULL REFERENCES Concert,
     section_name varchar(20) REFERENCES SeatInfo,
     price float NOT NULL
