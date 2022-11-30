@@ -130,7 +130,34 @@ INSERT INTO Price VALUES
     (6, 'main hall', 159),
     (7, 'main hall', 159);
     
+-- Insert into UserInfo
+INSERT INTO UserInfo VALUES
+    (ahightower),
+    (d_targaryen),
+    (cristonc);
+
+
+-- Insert into Purchase
+INSERT INTO Purchase VALUES
+    (1, '2022-11-11 12:00:00', 'ahightower'),
+    (2, '2022-11-11 12:00:00', 'ahightower'),
+    (3, '2022-11-11 21:00:00', 'd_targaryen'),
+    (4, '2022-11-11 21:00:00', 'd_targaryen'),
+    (5, '2022-11-11 22:00:00', 'cristonc'),
+    (6, '2022-11-11 22:00:00', 'cristonc'),
+    (7, '2022-11-11 22:00:00', 'cristonc');
+
+-- Insert into Ticket
+INSERT INTO Ticket VALUES
+    (1, 2, 'A5', 'floor'),
+    (2, 2, 'C2', 'balcony'),
+    (3, 1, 'B3', 'floor'),
+    (4, 7, 'BB7', 'main hall'),
+    (5, 3, 'row1, seat3', '100'),
+    (6, 4, 'row2, seat3', '200'),
+    (7, 4, 'row2, seat4', '200');
     
-   
+    
+    
     
     
