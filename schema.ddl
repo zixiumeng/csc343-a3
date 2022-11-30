@@ -42,7 +42,7 @@ CREATE TABLE Ownership (
 -- All registered Venue. A venue has a name (not unique), city, and street address.
 CREATE TABLE Venue (
     vid integer PRIMARY KEY,
-    name varchar NOT NULL,
+    name varchar(20) NOT NULL,
     city varchar(50) NOT NULL,
     address varchar(300) NOT NULL
 );
