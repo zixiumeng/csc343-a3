@@ -103,6 +103,7 @@ INSERT INTO SeatInfo VALUES
     ('row2, seat3', '300', 3，False),
     ('row2, seat4', '300', 3，False),
     ('row2, seat5', '300', 3，False);
+    
 
 -- Insert into Concert
 INSERT INTO Concert VALUES
