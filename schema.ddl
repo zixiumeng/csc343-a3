@@ -6,17 +6,10 @@ We can not enforce the constraint of "Every Venue has at least 10 seats" without
 THIS CAN BE ENFORCED BY TICKET PRIMARY KEY(2) each ticket_id cannot be bought twice 
 (3) each seat belongs to exactly one venue.
 -- Assumptions:
-?(1) a buyer can purchanse multiple tickets at the same point of time
-(2) any seat has a fixed mobility for all concerts
-?(3) any city can have no or multiple venues.
+(1) any seat has a fixed mobility for all concerts
 (4) venues can have the same name across cities, but each city only has one venue with the same name. 
     That is, city and venue_name uniquly define a venue.
 A concert is defined by their name(not unique) and datetime.
-
-TO DELETE:
-REFERENCES只能给unique/KEY
-owner 直接用phone number虽然可以但是感觉有点点奇怪 还是用owner ID吧
-reference table(...) "..." is optional
 
 
 drop schema if exists ticketchema cascade;
@@ -62,7 +55,7 @@ CREATE TBALE SectionInfo (
 -- Seat names do not repeat within the same section in a venue. 
 -- Some seats are accessible to people with mobility issues. 
 CREATE TABLE SeatInfo (
-    seat_name varchar(10) NOT NULL,
+    seat_name varchar(20) NOT NULL,
     section_name varchar(20) NOT NULL,
     vid integer NOT NULL REFERENCES Venue(vid),
     mobility boolean NOT NULL, 
@@ -99,7 +92,7 @@ CREATE TABLE Purchase (
 CREATE TABLE Ticket (
     tid integer PRIMARY KEY,
     cid integer NOT NULL REFERENCES Concert
-    seat_name varchar(10) NOT NULL,
+    seat_name varchar(20) NOT NULL,
     section_name varchar(20) NOT NULL,
     unique(cid, seat_name, section_name)
 );
