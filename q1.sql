@@ -20,10 +20,15 @@ DROP VIEW IF EXISTS Percentage CASCADE;
 DROP VIEW IF EXISTS AllconcertSP CASCADE;
 
 -- Find the price of all ticket
+--CREATE VIEW Ticketprice AS 
+--SELECT tid, price, Ticket.cid as cid
+--FROM Ticket JOIN Price ON (Ticket.cid = Price.cid and Ticket.section_name = Price.section_name)
+--    JOIN Purchase USING (tid);
+
+-- Find the price of all ticket
 CREATE VIEW Ticketprice AS 
 SELECT tid, price, Ticket.cid as cid
-FROM Ticket JOIN Price ON (Ticket.cid = Price.cid and Ticket.section_name = Price.section_name)
-    JOIN Purchase USING (tid);
+FROM Purchase JOIN Price ON (Purchase.cid = Price.cid and Purchase.section_name = Price.section_name);
 
 
 -- Find the sales of a concert
