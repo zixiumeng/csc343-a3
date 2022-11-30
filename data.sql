@@ -1,8 +1,13 @@
 -- Insert into Owners
 INSERT INTO Owner VALUES
-    (1, 'Corporation of Massey Hall', '647-888-8888'), 
-    (2, 'Roy Thomson Hall', '647-887-7878'),
-    (3, 'Maple Leaf Sports & Entertainment', '647-999-8080');
+    (1, 'Corporation of Massey Hall and Roy Thomson Hall', '647-888-8888')
+    (2, 'Maple Leaf Sports & Entertainment', '647-999-8080');
+
+-- Insert into Ownership
+INSERT INTO Ownership VALUES
+    (1, 1), (1, 2), (2, 3);
+
+
 
 -- Insert into Venues
 INSERT INTO Venue VALUES
@@ -101,13 +106,13 @@ INSERT INTO SeatInfo VALUES
 
 -- Insert into Concert
 INSERT INTO Concert VALUES
-    (1, 'Ron Sexsmith', 2022-12-03 19:30:00', 1),
-    (2, 'Women's Blues Review', 2022-11-23 20:00:00', 1),
-    (3, 'Mariah Carey - Merry Christmas to all', 2022-12-09 20:00:00', 3),
-    (4, 'Mariah Carey - Merry Christmas to all', 2022-12-11 20:00:00', 3),
-    (5, 'TSO - Elf in concert', 2022-12-09 19:30:00', 2),
-    (6, 'TSO - Elf in concert', 2022-12-10 14:30:00', 2),
-    (7, 'TSO - Elf in concert', 2022-12-10 19:30:00', 2);
+    (1, 'Ron Sexsmith', '2022-12-03 19:30:00', 1),
+    (2, 'Women''s Blues Review', '2022-11-23 20:00:00', 1),
+    (3, 'Mariah Carey - Merry Christmas to all', '2022-12-09 20:00:00', 3),
+    (4, 'Mariah Carey - Merry Christmas to all', '2022-12-11 20:00:00', 3),
+    (5, 'TSO - Elf in concert', '2022-12-09 19:30:00', 2),
+    (6, 'TSO - Elf in concert', '2022-12-10 14:30:00', 2),
+    (7, 'TSO - Elf in concert', '2022-12-10 19:30:00', 2);
     
 -- Insert into price
 INSERT INTO Price VALUES
