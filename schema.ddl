@@ -70,12 +70,14 @@ CREATE TABLE SeatInfo (
 );
 
 -- Concerts are booked into venues. Every Concert has a name, a date and time and is in exactly one venue. 
+-- Venue can only have one concert at a given time.
 CREATE TABLE Concert (
     cid integer PRIMARY KEY,
     concert_name varchar(30) NOT MULL,
     datetime timestamp NOT NULL,
     vid integer NOT NULL REFERENCES Venue(vid),
-    unique (concert_name, datetime)
+    unique (concert_name, datetime), 
+    unique(vid, datetime)
 );
 
 -- Users of the app have a unique username.
@@ -91,12 +93,13 @@ CREATE TABLE Purchase (
 );
 
 -- A ticket of the concert, with ticket_id, concert_id, seat_name, section_name on it. 
+-- Ticket
 CREATE TABLE Ticket (
     tid integer PRIMARY KEY,
     cid integer NOT NULL REFERENCES Concert
     seat_name varchar(10) NOT NULL,
     section_name varchar(20) NOT NULL,
-    unique(concert_name, datetime, seat_name, section_name)
+    unique(cid, seat_name, section_name)
 );
 
 -- The price of a ticket depends the concert and the section in which the seat is located in the venue.
