@@ -106,5 +106,6 @@ CREATE TABLE Ticket (
 CREATE TABLE Price (
     cid integer NOT NULL REFERENCES Concert,
     section_name varchar(20) NOT NULL,
-    price float NOT NULL
+    price float NOT NULL,
+    PRIMARY KEY (cid, section)
 );
