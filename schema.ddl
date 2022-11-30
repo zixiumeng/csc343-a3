@@ -9,7 +9,8 @@ THIS CAN BE ENFORCED BY TICKET PRIMARY KEY(2) each ticket_id cannot be bought tw
 ?(1) a buyer can purchanse multiple tickets at the same point of time
 (2) any seat has a fixed mobility for all concerts
 ?(3) any city can have no or multiple venues.
-(4) venues can have the same name across cities, but each city only has one venue with the same name. That is, city and venue_name uniquly define a venue.
+(4) venues can have the same name across cities, but each city only has one venue with the same name. 
+    That is, city and venue_name uniquly define a venue.
 A concert is defined by their name(not unique) and datetime.
 
 TO DELETE:
